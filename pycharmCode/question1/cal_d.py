@@ -14,6 +14,9 @@ def lambd_in_SquareN(lambd):
     return SquareN
 
 
-def cal_D(T,lambd,inangle):# T是周期  lambd就是波长？还是波长数？  inangle是入射角
+def cal_D(T,lambd,inangle):# T是周期  lambd就是波长  inangle是入射角
     t = math.pow(lambd,2)
     b = T*2*math.sqrt(lambd_in_SquareN(lambd))*math.sqrt(1-math.pow(math.sin(inangle),2)/lambd_in_SquareN(lambd))
+
+
+
