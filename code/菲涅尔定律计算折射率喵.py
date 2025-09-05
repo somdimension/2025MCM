@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 from scipy.optimize import root_scalar
+import matplotlib.pyplot as plt
+
 plt.rcParams['font.family'] = 'SimHei'
 def 读取excel(file_path):
     """
@@ -61,11 +63,27 @@ def process_and_save(input_path, output_path, angle_deg=10, n1=1.0):
 
     df['RefractiveIndex'] = refractive_indices
     df.to_csv(output_path, index=False)
+    
+    # 绘制折射率随反射率变化的图表
+    plt.figure(figsize=(10, 6))
+    plt.plot(df.iloc[:, 0], df['RefractiveIndex'], marker='o', linestyle='-', color="#5998c6")
+
+    plt.title('折射率随波数变化')
+    plt.xlabel('波数 (/cm)')
+    plt.ylabel('折射率')
+    plt.grid(True)
+    plt.tight_layout()
+    
+    # 保存图表
+    plot_path = output_path.replace('.csv', '.png')
+    plt.savefig(plot_path)
+    plt.show()
+    
     return df
 
 if __name__ == "__main__":
     输入文件 = r"C:\Users\czw17\Desktop\反射率处理数据.csv"
-    输出文件 = r"C:\Users\czw17\Desktop\输出结果.csv"
+    输出文件 = r"C:\Users\czw17\Desktop\输出结果喵.csv"
     result_df = process_and_save(输入文件, 输出文件, angle_deg=10, n1=1.0)
     print("处理完成，结果预览：")
     print(result_df.head())

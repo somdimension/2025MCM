@@ -53,7 +53,6 @@ if __name__ == '__main__':
     plt.figure(figsize=(10,6))
     plt.plot(wv, n_std,   '-', color='royalblue', label='Sellmeier公式计算曲线')
     plt.plot(x_csv, y_csv,'o', color='orange',   label='CSV 数据点')
-    plt.plot(x_csv, n_interp,'--', color='green',label='计算曲线')
     plt.xlabel('波数 (/cm)')
     plt.ylabel('折射率')
     plt.title('SiC 折射率曲线对比')
