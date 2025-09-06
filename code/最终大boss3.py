@@ -3,19 +3,19 @@ import 光程差
 import 计算折射率喵1
 import 计算折射率喵2
 from scipy.signal import find_peaks
-file_path = r"C:\Users\czw17\Desktop\新输出结果2喵.csv"
+file_path = r"C:\Users\czw17\Desktop\附件3.csv"
 厚度 = 7.5#微米
 
 def 周期函数(波数,厚度):
 
     波长 = 1/波数*10**4#微米
-    周期 =  np.abs(np.cos(np.pi*光程差.计算光程差(计算折射率喵2.计算折射率(波数, file_path),厚度,10)/波长))
+    周期 =  np.abs(np.cos(np.pi*光程差.计算光程差(计算折射率喵1.计算折射率(波数, file_path),厚度,10)/波长))
     # print(波长)  # 注释掉这行以减少输出
     return 周期
 
 def 计算厚度周期关系(厚度值):
     """计算给定厚度下的周期信息"""
-    波数 = np.linspace(3200, 4000, 20000)
+    波数 = np.linspace(1500,2700, 20000)
     周期 = 周期函数(波数, 厚度值)
     
     # 使用find_peaks找到所有峰值
@@ -26,7 +26,7 @@ def 计算厚度周期关系(厚度值):
         峰值波数 = 波数[peaks]
         周期差值 = np.diff(峰值波数)
         平均周期 = np.mean(np.abs(周期差值))
-        print(f'厚度 {厚度值} 对应的平均周期: {平均周期:.2f}')
+        #print(f'厚度 {厚度值} 对应的平均周期: {平均周期:.2f}')
         return 平均周期
     else:
         print(f'厚度 {厚度值} 下未找到足够的峰值')

@@ -3,9 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter1d
 from scipy.signal import find_peaks
-
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
 # 1. 读取 Excel 文件
-file_path = r'C:\Users\czw17\Desktop\附件1_STL分解结果_自动周期.xlsx'
+file_path = r'C:\Users\czw17\Desktop\附件2_STL分解结果_自动周期.xlsx'
 data = pd.read_excel(file_path)
 
 # 2. 提取第一列（自变量 x）和第三列（信号 y）
@@ -47,8 +48,16 @@ plt.tight_layout()
 plt.show()
 
 print(f'检测到 {len(peaks)} 个主要波峰')
+print(peaks)
+
 print(f'平均周期: {mean_period:.3f}')
 # 已获取波峰索引 peaks 和自变量 x
+
+# 打印每个波峰对应的波数
+print("每个波峰对应的波数：")
+for i, peak_index in enumerate(peaks):
+    wave_number = x.iloc[peak_index]
+    print(f"第 {i+1} 个波峰的波数: {wave_number:.3f}")
 
 # 计算相邻波峰之间的距离
 peak_distances = np.diff(x.iloc[peaks])

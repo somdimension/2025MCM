@@ -66,7 +66,7 @@ def process_and_save(input_path, output_path, angle_deg=10, n1=1.0):
     
     # 绘制折射率随反射率变化的图表
     plt.figure(figsize=(10, 6))
-    plt.plot(df.iloc[:, 0], df['RefractiveIndex'], marker='o', linestyle='-', color="#5998c6")
+    plt.plot(df.iloc[:, 0], df['RefractiveIndex'], marker='.', linestyle='-', color="#2f9db3")
 
     plt.title('折射率随波数变化')
     plt.xlabel('波数 (/cm)')

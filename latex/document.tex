@@ -1,0 +1,114 @@
+\documentclass[12pt, a4paper, oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb, appendix, bm, graphicx, hyperref, mathrsfs}
+
+\title{\textbf{论文标题}}
+\author{Dylaaan}
+\date{\today}
+\linespread{1.5}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{example}[theorem]{例}
+\newtheorem{proposition}[theorem]{命题}
+\renewcommand{\abstractname}{\Large\textbf{摘要}}
+\usepackage{float} % 启用 [H] 位置选项
+
+\begin{document}
+	
+	\maketitle
+	
+	\setcounter{page}{0}
+	\maketitle
+	\thispagestyle{empty}
+	
+	\begin{abstract}
+		这里是摘要. 
+		\par\textbf{关键词：}这里是关键词; 这里是关键词. 
+	\end{abstract}
+	
+	\newpage
+	\pagenumbering{Roman}
+	\setcounter{page}{1}
+	\tableofcontents
+	\newpage
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+	
+	\section{一级标题}
+	
+	
+	
+	
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot001}
+	\caption{}
+	\label{fig:screenshot001}
+\end{figure}
+
+推导过程:
+\begin{align*}
+	\Delta L = n_2 \cdot(AO + AB) -n_1\cdot OC\\
+	AB = AO = \frac{d}{n_2 \cdot\sin\theta } \\
+	OC = OB \cdot \tan\alpha \\
+	n_1 \sin \alpha = n_2 \sin \theta \\
+	n_1 = 1
+\end{align*}
+求解得到：\\
+$$\Delta L = 2\cdot d \cdot \sqrt{n_2^2 - \sin \alpha^2} $$  \\
+相干光发生条件：
+\begin{align*}
+	\frac{2\pi}{\lambda}\Delta L = 2\cdot m\cdot \pi  \\
+	\frac{2\pi}{\lambda}\Delta L = (2\cdot m + 1 )\cdot \pi
+\end{align*}
+结论(带初相位):
+$$ d = \frac{m (\lambda + \varphi)  }{2\sqrt{n_2^2 - \sin \alpha^2}}  $$
+在实际中，我们通过观测数据的两个峰值的间距，或者波谷(把波长换算为波数)。有:
+$$ 2v_1d\sqrt{n_2^2 - \sin \alpha^2} = m  $$
+$$ 2v_2d\sqrt{n_2^2 - \sin \alpha^2} = m+1  $$
+两个式子做差：\\
+令： $$|v_1 - v_2| = \Delta T$$
+得到：$$d = \frac{1}{2 \Delta T \sqrt{n_2^2 - \sin \alpha^2}}$$
+综上所述：我们只需要得到相邻波峰的横轴的差，折射率$n_2$,以及入射角，就可以得到厚度d
+	 
+	\section{第二问}
+	\subsection{模型建立}
+	\begin{align*}
+		\frac{2\pi}{\lambda}\Delta L = 2\cdot m\cdot \pi  \\
+	\end{align*}
+	阐释1：为什么相邻的两个波峰的波数可以用来求d
+	解释一下模型。
+	\subsubsection{证明为相干光}
+	同一光源发出，频率相同；反射光和折射光平行。
+	\subsubsection{具有波长差，发生干涉}
+	对于附件1中图像的周期性变化，是由于反射光与经过折射的反射光具有一定的光路差，相干涉，从而导致了图像的变化，
+	\subsection{数据预处理}
+	\subsubsection{除去干扰}
+	通过matplot库函数，画出附件一和附件二的图像。我们明显看到，附件一在波数在500-1000有着明显的突变。
+	通过查找资料，（此处省略一万字），我们可以直接省略掉波数小于1500的部分，同时也不会失去模型的准确度。
+	\subsubsection{提取周期}
+	傅里叶变换可以将时域信号转换为频域信号，通过分析频域特征，能够有效推测出数据中的周期成分 。利用傅里叶变换就可以清晰地找到这些周期信号，进而分离出整体趋势和周期扰动。
+	\subsubsection{计算折射率}
+	题目明确提到外延层的折射率通常不是常数，它与掺杂载流子的浓度、红外光谱的波长等参数有关。由于附件1和附件2使用的是同一块块碳化硅晶圆片，故可以假设载流子浓度一定，折射率的主要影响因素为红外光谱的波长。菲涅耳公式描述了光在不同介质分界面上的反射和折射的振幅、相位等关系。能够结合光的反射、折射等光学现象的观测数据来得到折射率。\\
+	我们通过一定的处理得到（省略两万字）折射率函数
+	\subsubsection{计算d}
+	我们提取出了附件1函数的周期性变化的周期，通过（什么方法）得到 最优 T
+	通过最优T
+	\newpage
+	
+	\begin{thebibliography}{99}
+		\bibitem{a}作者. \emph{文献}[M]. 地点:出版社,年份.
+		\bibitem{b}作者. \emph{文献}[M]. 地点:出版社,年份.
+	\end{thebibliography}
+	
+	\newpage
+	
+	\begin{appendices}
+		\renewcommand{\thesection}{\Alph{section}}
+		\section{附录标题}
+		这里是附录. 
+	\end{appendices}
+	
+\end{document}
