@@ -11,7 +11,7 @@ def 读取excel(file_path):
     df = pd.read_csv(file_path, usecols=[0, 1])
     return df
 
-def calculate_refractive_index(reflectance, angle_deg=10, n1=1.0):
+def calculate_refractive_index(reflectance, angle_deg=15, n1=1.0):
     """
     使用菲涅尔公式计算折射率。
     :param reflectance: 0-1 之间的小数
@@ -82,8 +82,8 @@ def process_and_save(input_path, output_path, angle_deg=10, n1=1.0):
     return df
 
 if __name__ == "__main__":
-    输入文件 = r"C:\Users\czw17\Desktop\新反射率处理数据.csv"
-    输出文件 = r"C:\Users\czw17\Desktop\新输出结果喵.csv"
-    result_df = process_and_save(输入文件, 输出文件, angle_deg=10, n1=1.0)
+    输入文件 = r"C:\Users\czw17\Desktop\新反射率处理数据2.csv"
+    输出文件 = r"C:\Users\czw17\Desktop\新输出结果2喵.csv"
+    result_df = process_and_save(输入文件, 输出文件, angle_deg=15, n1=1.0)
     print("处理完成，结果预览：")
     print(result_df.head())

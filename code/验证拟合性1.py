@@ -28,7 +28,7 @@ def calculate_sic_refractive_index(wavenumber_cm):
 
 if __name__ == '__main__':
     # 1. 读取用户 CSV
-    file_path = r'C:\Users\czw17\Desktop\输出结果.csv'
+    file_path = r'C:\Users\czw17\Desktop\新输出结果喵.csv'
     df = 读取excel(file_path)
     x_csv, y_csv = df['x'].values, df['y'].values
 
