@@ -7,7 +7,7 @@ from scipy.ndimage import gaussian_filter1d
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 # ========== 1. 加载你的数据 ==========
-input_path = r"C:\Users\czw17\Desktop\附件3.csv"
+input_path = r"C:\Users\czw17\Desktop\附件4.csv"
 
 try:
     df = pd.read_csv(input_path, header=0)

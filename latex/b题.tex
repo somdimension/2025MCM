@@ -32,18 +32,16 @@
 本文围绕碳化硅外延层厚度的测量这一问题，以\textbf{红外干涉法}为主要手段，针对双光束干涉和多光束干涉的不同情景分别建立数学模型并设计厚度求解方案，旨在制定一套科学、准确、可靠的碳化硅外延层厚度测试标准。
 
 
-\textbf{对于问题一,}基于光在外延层-衬底只发生一次反射的\textbf{双光束干涉}的情景，我们利用干涉的基本原理，由几何关系推得光程差，并利用\textbf{斯涅尔折射定律}和干涉条件下的相位差所满足的关系式，建立起红外光谱的波长、外延层的折射率和红外光的入射角等参数与外延层厚度相关联的数学模型，为后续外延层厚度的计算奠定模型基础。
+\textbf{对于问题一,}基于光在外延层-衬底只发生一次反射的\textbf{双光束干涉}的情景，我们利用干涉的基本原理，由几何关系推得光程差，进而推导出双波束相位差，并利用\textbf{斯涅尔折射定律}和干涉条件下的相位差所满足的关系式，建立起红外光谱的波长、外延层的折射率和红外光的入射角等参数与外延层厚度相关联的数学模型，为厚度计算提供理论基础。
 
-\textbf{对于问题二,}基于问题一所建立的数学模型，设计了外延层厚度的算法，并将附件1和附件2的数据可视化处理，利用\textbf{傅里叶变换}提取周期。同时结合\textbf{菲涅尔公式}等算得外延层厚度，通过模型的检验和计算过程的分析，验证模型的可靠性与准确性。
+\textbf{对于问题二,}基于问题一所建立的数学模型，设计了外延层厚度的算法，并将附件1和附件2的数据可视化处理，利用\textbf{傅里叶变换}提取周期。同时结合\textbf{菲涅尔公式}精确计算折射率数据，算得外延层厚度为？？？，通过模型的检验和计算过程的分析，验证模型的可靠性与准确性。
 
-\textbf{对于问题三,}
+\textbf{对于问题三,}基于光学理论分析，推导出多光束干涉下反射率的特性及其发生的必要条件。多光束干涉情况下，反射率-波数图像表现出不对称性，但波谷分布位置与双光束干涉相同。利用此特性，对附件3和附件4中硅晶圆的反射率数据进行分析，准确计算硅外延层厚度为？？？。同时，提取多光束干涉的特征并设计相应数学模型及算法。计算结果表明，多光束干涉能\textbf{提升厚度计算的精度}。针对碳化硅晶圆片（附件1和附件2）数据分析，认为多光束干涉影响可忽略，\textbf{仅发生双光束干涉}。
 
-
-最后，
-
+该研究系统性地建立了双光束及多光束干涉模型，设计了相应的厚度求解方法，并通过实验数据验证，具有较高的科学性和应用价值。
 
 
-\keywords{关键词\quad  关键词\quad  关键词\quad  关键词 \quad 关键词}
+\keywords{光的干涉\quad  菲涅尔定律\quad  高斯滤波\quad  傅里叶变换\quad  时间序列分析}
 \end{abstract}
 
 \section{问题重述}
@@ -62,16 +60,17 @@
 利用问题一中我们提出的模型，利用附件1、2中的实测数据计算SiC外延层厚度，并分析结果的可靠性。
 
 \textbf{问题3} 
-
+考虑多波束干涉的情况，调整上文提出的模型。利用适用于多波束干涉的模型计算附件3、4中的硅外延层厚度。
+同时，根据建立的数学模型，分析多波束干涉发生的条件，分析多波束干涉现象对于测量精度的影响，判断附件1、2中是否存在多波束干涉。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \section{问题分析}
 \subsection{问题一分析}
 红外干涉法测量碳化硅外延层厚度的核心在于双光束干涉现象。当红外光以特定入射角照射样品时，在外延层表面与衬底界面分别产生一束反射光。这两束光因传播路径不同形成光程差，其大小取决于外延层厚度、材料折射率及入射光波长。光程差导致两束光在探测器处发生相位叠加：当相位相同时呈现相长干涉（反射率极大值），相位相反时则发生相消干涉（反射率极小值）。
 
-另外，外延层折射率与波长有关。不同波长的入射光在材料中经历不同的折射行为，这使得光程差成为波长的复合函数。这一特性导致反射光谱呈现周期性振荡现象——反射率随波长变化形成明暗交替的干涉条纹，即反射率函数呈现出波动的特性。条纹的振荡频率与外延层厚度直接关联：厚度越大，光谱振荡越密集；厚度越小，振荡越稀疏。
+另外，外延层折射率与入射光波长有关，即材料的色散现象。不同波长的入射光在材料中经历不同的折射行为，这使得光程差成为波长的某种复合函数。这一特性导致反射光谱呈现周期性振荡现象——反射率随波长变化形成明暗交替的干涉条纹，即反射率函数呈现出波动的特性。条纹的振荡频率与外延层厚度直接关联：厚度越大，光谱振荡越密集；厚度越小，振荡越稀疏。
 
-因此，反射率振荡曲线的特征提取是厚度计算的关键。通过分析震荡曲线的特性可建立振荡周期特征与外延层厚度的定量映射关系，即所求数学模型
+因此，反射率振荡曲线的特征提取是厚度计算的关键。通过分析震荡曲线的特性可建立振荡周期特征与外延层厚度的定量映射关系，即所求数学模型。
 
 \subsection{问题二分析}	
 对于问题二，
@@ -128,25 +127,50 @@ $\tilde{\nu}$ & 波数 & $cm^{-1}$ \\
 
 由于半波损失带来的相位差是一定的，不会对函数曲线的振荡周期产生影响，因此不会影响本文所建立模型中外延层厚度的计算。所以后文中两束光的相位差简化为只由光程差所造成的相位差。
 \subsubsection{数学模型建立}
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{q1_1.png}
 	\caption{}
 	\label{fig:q1_1}
 	\end{figure}
-由图中几何关系易得等式（1）（2）（3）
-\begin{gather}
-\Delta L = n_2 \cdot(AO + AB) -n_1\cdot OC\\
-AB = AO = \frac{d}{n_2 \cdot\sin\theta } \\
-OC = OB \cdot \tan\alpha 
-\end{gather}
-斯涅尔折射定律：
+考虑如图所示的双光束干涉几何结构，设入射光在介质界面发生折射后，形成两束相干光：一束经上表面反射（光程记为 $L_1$），另一束经下表面反射后返回（光程记为 $L_2$）。两束光在空气中叠加产生干涉条纹。根据几何关系，可得光程差 $\Delta L = L_2 - L_1$ 满足：
+
+\begin{equation}
+\Delta L = n_2 \cdot (AO + AB) - n_1 \cdot OC 
+\end{equation}
+
+其中：
+
+\begin{itemize}
+    \item $n_1$：入射介质（如空气）的折射率；
+    \item $n_2$：外延层（如 SiC）的折射率；
+    \item $d$：外延层厚度；
+    \item $\alpha$：入射角（空气中）；
+    \item $\theta$：折射角（外延层内）；
+    \item $AO, AB$：外延层内光线传播路径长度；
+    \item $OC$：空气中反射路径在水平方向的投影长度。
+\end{itemize}
+由几何对称性及折射定律，进一步可得：
+
+\begin{align}
+AB &= AO = \frac{d}{n_2 \sin \theta}  \\
+OC &= OB \cdot \tan \alpha = 2 \cdot AO \cdot \sin \theta \cdot \tan \alpha = 2d \cdot \frac{\tan \alpha}{n_2} 
+\end{align}
+由于斯涅尔折射定律：
 \begin{gather}
 n_1 \sin \alpha = n_2 \sin \theta 
 \end{gather}
-联立（1）（2）（3）（4）解得：\\
+联立（1）（2）（3）（4），并代入 $\tan \alpha = \frac{\sin \alpha}{\cos \alpha}$，解得：
+\begin{align*}
+\Delta L &= 2d \left( \frac{1}{\sin \theta} - \frac{n_1 \sin \alpha}{n_2 \cos \alpha} \right) \\
+&= 2d \left( \frac{n_2}{n_1 \sin \alpha} - \frac{n_1 \sin \alpha}{n_2 \cos \alpha} \right) \quad \text{（代入 $\sin \theta$）}
+\end{align*}
 
-$$\Delta L = 2\cdot d \cdot \sqrt{n_2^2 - \sin \alpha^2} $$  \\
+由于 $n_1 \approx 1$（空气），该式可进一步简化为：
+
+\begin{equation}
+\Delta L = 2d \sqrt{n_2^2 - \sin^2 \alpha} \tag{5}
+\end{equation}
 相位差：
 \begin{gather}
 	\Delta \phi = 2\pi \frac{\Delta L}{\lambda}
@@ -159,7 +183,7 @@ $$\Delta L = 2\cdot d \cdot \sqrt{n_2^2 - \sin \alpha^2} $$  \\
 \begin{gather}
 	\frac{2\pi}{\lambda}\Delta L = (2\cdot m + 1 )\cdot \pi \quad (m=1,2,3,\ldots)
 \end{gather}
-在实际观测中，我们发现SiC外延层的折射率会随着波长的变化而变化，在第二问的求解中，我们将会考虑波长对于折射率的影响。在此处，我们认为波长变化不大时，折射率可以视为常数。因此我们的结论是(带初相位$\varphi$):
+在实际观测中，我们发现SiC外延层的折射率会随着波长的变化而变化，在第二问的求解中，我们将会考虑波长对于折射率的影响。在此处，我们认为在波数变化极小的一段范围内，折射率可以视为常数。因此我们的结论是(带初相位$\varphi$):
 \begin{equation}
 	d = \frac{m (\lambda + \varphi)  }{2\sqrt{n_2^2 - \sin \alpha^2}}
 \end{equation}
@@ -180,34 +204,126 @@ $
 ，并整理得到外延层厚度d的表达式为：\begin{equation}
 d = \frac{1}{2 \Delta T \sqrt{n_2^2 - \sin \alpha^2}}
 \end{equation}
-综上所述：厚度d由波数差$\Delta T$，折射率$n_2$,以及入射角$\alpha$确定。
-	 
-	\section{第二问}
-	\subsection{模型建立}
-	\begin{equation}
-	d = \frac{1}{2 \Delta T \sqrt{n_2^2 - \sin \alpha^2}}
-	\end{equation}
-	由第一问可以得到模型，我们采用什么方法求T，采用什么方法求n，大致思路
+综上所述：厚度d由波数差$\Delta T$，折射率$n_2$,以及入射角$\alpha$确定，三者关系如下：
+\begin{equation}
+\begin{cases}
+d = \dfrac{1}{2 \Delta T \sqrt{n_2^{2}-\sin^{2}\alpha}}\\[4pt]
+|v_{1}-v_{2}|=\Delta T\\[4pt]
+n_{2}=f(v)
+\end{cases}
+\label{eq:thickness}
+\end{equation}
+其中$f(v)$为波数与折射率的关系函数，该函数与材料本身性质有关。
+	\section{第二问的模型的建立和求解}
+	由第一问可以得到厚度计算的基本模型，针对给出的SiC材料红外干涉法的数据，我们将通过数据预处理、折射率函数求解、周期提取、模型验证等步骤，应用第（1）问的模型并求解。
 	\subsection{数据可视化与预处理}
-	通过matplot库函数，画出附件一和附件二的图像。我们明显看到，附件一二在波数在500-1000有着明显的突变。通过查资料我们得知，这部分可以删除：这里把源资料拿过来（标注是抄的，最后要优化一下语句降低重复率）
-	\subsubsection{提取周期}
-	傅里叶变换可以将时域信号转换为频域信号，通过分析频域特征，能够有效推测出数据中的周期成分。利用傅里叶变换就可以清晰地找到这些周期信号，进而分离出整体趋势和周期扰动。
-输出：平均周期: 252.629
-	\subsubsection{计算折射率}
-	题目明确提到外延层的折射率通常不是常数，它与掺杂载流子的浓度、
-红外光谱的波长等参数有关。由于附件1和附件2使用的是同一块块碳化硅晶圆片，故可以假设载流子浓度一定，折射率的主要影响因素为红外光谱的波长。菲涅耳公式描述了光在不同介质分界面上的反射和折射的振幅、相位等关系。能够结合光的反射、折射等光学现象的观测数据来得到折射红外光谱的波长等参数有关。由于附件1和附件2使用的是同一块块碳化硅晶圆片，故可以假设载流子浓度一定，折射率的主要影响因素为红外光谱的波长。菲涅耳公式描述了光在不同介质分界面上的反射和折射的振幅、相位等关系。能够结合光的反射、折射等光学现象的观测数据来得到折射率。
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\linewidth]{屏幕截图 2025-09-07 115010.png}
+	\caption{附件1 反射率-波数图}
+	\label{fig:refraction_process}
+	\end{figure}
+	绘制附件一的图像，我们明显看到，附件1数据在波数在500-1000cm$^{-1}$范围有着明显的突变，附件2的数据特征与之类似。通过查询论文\upcite{Najbauer2024Uncovering}，我们得知， SiC 外延样品的反射光谱可分为四个光谱区域，
+
+	\begin{itemize}
+  \item 500–700 cm$^{-1}$：厚度振荡区，对材料本身杂志等成分敏感；
+  \item 700–1000 cm$^{-1}$：余辉带，具有高吸收率；
+  \item 1000–1500 cm$^{-1}$：过渡区，介于吸收与透明之间；
+  \item $>1500$ cm$^{-1}$：透明区，能够较好的显示厚度产生的振荡。
+\end{itemize}
+	因此，我们选取波数在1500cm$^{-1}$以上的数据进行分析。
+
+	\subsubsection{菲涅尔公式}
+	外延层的折射率通常不是常数，它与掺杂载流子的浓度、红外光谱的波长等参数有关。由于附件1和附件2使用的是同一块块碳化硅晶圆片，故可以假设载流子浓度一定，折射率仅与波长有关。
+	
+	菲涅耳公式描述了光在不同介质分界面上的反射和折射的振幅、相位等关系。能够结合光的反射、折射等光学现象的观测数据来得到折射红外光谱的波长等参数有关。
+	这两个公式给出了 $R_s$ 和 $R_p$ 的具体表达式。
+
+\begin{itemize}
+    \item s-偏振反射率 ($R_s$):
+    \[
+    R_s = \left| \frac{n_1 \cos \theta_i - n_2 \cos \theta_t}{n_1 \cos \theta_i + n_2 \cos \theta_t} \right|^2
+    \]
+    
+    \item p-偏振反射率 ($R_p$):
+    \[
+    R_p = \left| \frac{n_2 \cos \theta_i - n_1 \cos \theta_t}{n_2 \cos \theta_i + n_1 \cos \theta_t} \right|^2
+    \]
+\end{itemize}
+其中，$n_1$为入射介质的折射率，$n_2$为折射介质的折射率，$\theta_i$为入射角度，$\theta_t$为折射角度。
+$R_s$和$R_p$分别是s-偏振光 (TE波)和p-偏振光 (TM波)的表达式。我们认为，红外干涉法所使用的光为非偏振光，反射率$R = \frac{1}{2}(R_s + R_p)$。
+
+与式(4)进行联立，我们解得：
 	\begin{equation}
 	\begin{split}
-	\frac{K}{K + 1} = &\frac{1}{2}\bigg[ \left( \frac{n_1 \cos\theta_i - \sqrt{n_2^2 - n_1^2 \sin^2\theta_i}}{n_1 \cos\theta_i + \sqrt{n_2^2 - n_1^2 \sin^2\theta_i}} \right)^2 + \\
+	R = \frac{K}{K + 1} = &\frac{1}{2}\bigg[ \left( \frac{n_1 \cos\theta_i - \sqrt{n_2^2 - n_1^2 \sin^2\theta_i}}{n_1 \cos\theta_i + \sqrt{n_2^2 - n_1^2 \sin^2\theta_i}} \right)^2 + \\
 	&\left( \frac{n_2^2 \cos\theta_i - n_1 \sqrt{n_2^2 - n_1^2 \sin^2\theta_i}}{n_2^2 \cos\theta_i + n_1 \sqrt{n_2^2 - n_1^2 \sin^2\theta_i}} \right)^2 \bigg]
 	\end{split}
 	\end{equation}
-这里详细解释一下，下面这两张图是如何得出的
-第零步：由文献，在1500/cm之上sic为透明介质，不吸收光线第一步：计算反射率 R 根据您已知的反射光与折射光的光强比，计算出光线在介质分界面的反射率 R。（这一段我来写）第二步：选择相应的菲涅尔公式我们认为光线为非偏振光，使用公式计算
-\subsection{计算d}
-们提取出了附件1函数的周期性变化的周期，通过（什么方法）得到
-最优 T
-通过最优T我们根据公式 ,我们带入附件1求出的T，附件1的角度15度，以及相对应的折射率最终计算出d的结果为：没计算出来
+\subsubsection{计算折射率}
+上文提到，波数在1500cm$^{-1}$以上时，SiC可视为透明介质，即光线射向SiC表面时只会发生反射、透射而不会吸收。又由于本题的假设中，仅考虑双光束干涉，所以我们认为在双光束干涉近似下，透明介质（如SiC，无吸收）薄膜的反射率由两束相干光叠加决定：第一束为上表面直接反射光，其强度 $ R_0 $ 依赖入射角 $ \theta_0 $，取式(14)菲涅尔反射率 $ R_0 $，其中 $ \theta $ 为膜内折射角，满足 式(4)$ n_0 \sin\theta_0 = n \sin\theta $；第二束光强度为 $ R_1 = R_0 (1 - R_0)^2 $。二者相位差为 $ \phi = \frac{4\pi}{\lambda} n d \cos\theta $。总反射率为：
+\begin{equation}
+R = R_0 + R_1 - 2\sqrt{R_0 R_1} \cos\phi
+\end{equation}
+反射率随 $ d $、$ \lambda $ 或 $ \theta_0 $ 呈周期性变化。
+观察式(15)，我们发现SiC外延层反射率随波数变化的图象可进行分解为两个部分：第一部分是与波数无关的常数项，第二部分是与波数相关的项。
+利用傅里叶变换，我们将附件1、2的数据分解为了波动部分和趋势部分，如图所示：
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{屏幕截图 2025-09-07 130331.png}
+    \caption{附件1 趋势-波动示意图}
+    \label{fig:att1}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{屏幕截图 2025-09-07 130757.png}
+    \caption{附件2 趋势-波动示意图}
+    \label{fig:att2}
+  \end{subfigure}
+  \caption{}
+  \label{fig:double}
+\end{figure}
+图中趋势部分的大小代表$R_0+R_1$的大小，波动部分的振幅代表$2\sqrt{R_0 R_1}$的大小。
+对范围内的$R_0$和$R_1$进行求解，我们可以得到$R_0$随波束变化的函数图象，如图所示：
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{屏幕截图 2025-09-07 132303.png}
+
+    \caption{附件1 反射率数据}
+    \label{fig:附件1 反射率数据}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{屏幕截图 2025-09-07 132440.png}
+    \caption{附件2 反射率数据}
+    \label{fig:附件2 反射率数据}
+  \end{subfigure}
+  \caption{}
+  \label{fig:double2}
+\end{figure}
+接着，分别在10°（附件1）和15°（附件2）的情境下代入式（14）求得数值解，如图，以下是附件1和附件2的折射率计算结果：
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{新输出结果喵.png}
+
+    \caption{附件1 折射率数据}
+    \label{fig:附件1 反射率数据}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{新输出结果2喵.png}
+    \caption{附件2 折射率数据}
+    \label{fig:}
+  \end{subfigure}
+  \caption{}
+  \label{fig:double3}
+\end{figure}
+
+\subsection{计算外延层厚度}
+利用方程组(13)所代表的模型，我们将上述折射率函数代入，在附件1和附件2数据中分别取点进行计算。
 
 	
 \subsection{验证}
