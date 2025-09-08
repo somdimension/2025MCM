@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -16,5 +16,21 @@
 \newblock Uncovering the secrets of sic epilayers\allowbreak[J/OL].
 \newblock Compound Semiconductor Magazine, 2024, 2024\allowbreak (4).
 \newblock \url{https://compoundsemiconductor.net/article/119394/Uncovering_the_secrets_of_SiC_epilayers}.
+
+\bibitem[Franta et~al.(2017)Franta, Dubroka, Wang, Giglia, Voh{\'a}nka, Franta, and Ohl{\'\i}dal]{franta2017temperature}
+FRANTA D, DUBROKA A, WANG C, et~al.
+\newblock Temperature-dependent dispersion model of float zone crystalline silicon\allowbreak[J].
+\newblock Applied Surface Science, 2017, 421: 405-419.
+
+\bibitem[Rac苏(2023)]{zhi2021juejin}
+Rac苏.
+\newblock 物理光学-多光束干涉\allowbreak[EB/OL].
+\newblock 2023\allowbreak[2025-09-07].
+\newblock \url{https://zhuanlan.zhihu.com/p/378463908}.
+
+\bibitem[{Alibaba Group}(2025)]{qwenmaxpreview2025}
+{Alibaba Group}.
+\newblock Qwen-max-preview\allowbreak[Z].
+\newblock Alibaba Cloud, 2025.
 
 \end{thebibliography}
